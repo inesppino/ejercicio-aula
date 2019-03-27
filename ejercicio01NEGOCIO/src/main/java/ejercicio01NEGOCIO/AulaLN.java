@@ -3,6 +3,7 @@ package ejercicio01NEGOCIO;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Set;
 
 import com.curso.java.oo.ejercicio01oo.model.Alumno;
@@ -28,11 +29,10 @@ public class AulaLN {
 		Aula aula = new Aula(nombre, proyector, pizarra, puestosDeAlumnos);
 		this.aulaDao.createAula(aula);
 		return this.aulaDao.getAulas(nombre);
-	}
-//	
+	}	
 
 	// Eliminar aula
-	public void eliminarUnAula(Collection<Aula> aulas) {
+	public void eliminarUnAula(List<Aula> aulas) {
 		for (Aula aula : aulas) {
 			aulaDao.deleteAula(aula);
 		}

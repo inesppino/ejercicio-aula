@@ -1,6 +1,6 @@
 package ejercicio01DAO;
 
-import java.util.Collection;
+import java.util.List;
 
 import com.curso.java.oo.ejercicio01oo.model.Aula;
 
@@ -10,7 +10,7 @@ public interface IAulaDAO {
 	void createAula(Aula aula);
 	
 	//almacen de aulas
-	Collection<Aula> getAulas();
+	List<Aula> getAulas();
 	
 	//actualizar aula existente
 	void updateAula(Aula aula);
@@ -18,7 +18,7 @@ public interface IAulaDAO {
 	//borrar aula existente por su nombre
 	void deleteAula(Aula aula);
 	
-	//
+	//obtener aula por nombre
 	Aula getAulas(String nombre);
 
 }
