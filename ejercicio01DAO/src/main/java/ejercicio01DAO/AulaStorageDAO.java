@@ -7,7 +7,7 @@ import com.curso.java.oo.ejercicio01oo.model.Aula;
 
 public class AulaStorageDAO implements IAulaDAO {
 	
-	//listado de aulas vacio donde se agregaran las aulas
+	//listado de aulas vacio donde se agrega el aula
 	private List<Aula> listadoDeAulas;
 	
 	//lama a la funcion de la interfaz y lo añade a la lista 
