@@ -1,6 +1,5 @@
 package ejercicio01DAO;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.curso.java.oo.ejercicio01oo.model.Aula;
@@ -17,11 +16,6 @@ public class AulaMemoryListDAO implements IAulaDAO {
 		this.listadoDeAulas = listadoDeAulas;
 	}
 
-	public AulaMemoryListDAO() {
-		super();
-		this.listadoDeAulas = new ArrayList<Aula>();
-	}
-	
 	public void createAula(Aula aula) {
 		if(!listadoDeAulas.contains(aula)) {
 			listadoDeAulas.add(aula);

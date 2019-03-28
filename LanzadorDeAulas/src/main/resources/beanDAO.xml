@@ -3,7 +3,11 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-<bean id="AulaListDao" class="ejercicio01DAO.AulaMemoryListDAO"></bean>
+<bean id="AulaListDao" class="ejercicio01DAO.AulaMemoryListDAO">
+	<property name="listadoDeAulas">
+		<bean id="listaAulas" class="java.util.LinkedList"></bean>
+	</property>
+</bean>
 
 <bean id="AulaLN" class="ejercicio01NEGOCIO.AulaLN">
 	<property name="aulaDao" ref="AulaListDao"></property>
