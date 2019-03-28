@@ -9,6 +9,14 @@ public class AulaMemoryListDAO implements IAulaDAO {
 
 	private List<Aula> listadoDeAulas;
 	
+	public List<Aula> getListadoDeAulas() {
+		return listadoDeAulas;
+	}
+
+	public void setListadoDeAulas(List<Aula> listadoDeAulas) {
+		this.listadoDeAulas = listadoDeAulas;
+	}
+
 	public AulaMemoryListDAO() {
 		super();
 		this.listadoDeAulas = new ArrayList<Aula>();

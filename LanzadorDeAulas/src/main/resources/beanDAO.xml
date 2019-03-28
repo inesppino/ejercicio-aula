@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<bean id="AulaListDao" class="ejercicio01DAO.AulaMemoryListDAO"></bean>
+
+<bean id="AulaLN" class="ejercicio01NEGOCIO.AulaLN">
+	<property name="aulaDao" ref="AulaListDao"></property>
+</bean>
+
+</beans>

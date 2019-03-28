@@ -4,16 +4,24 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import com.curso.java.oo.ejercicio01oo.model.Alumno;
 import com.curso.java.oo.ejercicio01oo.model.Aula;
 import com.curso.java.oo.ejercicio01oo.model.Profesor;
 import com.curso.java.oo.ejercicio01oo.model.PuestoDeTrabajo;
 
-import ejercicio01DAO.AulaMemoryListDAO;
 import ejercicio01NEGOCIO.AulaLN;
 
 public class LanzadorAulasList {
-
+	
+	public static ApplicationContext context;
+	
+	static {
+		context = new ClassPathXmlApplicationContext("beanDAO.xml");
+	}
+	
 	public static void main(String[] args) {
 		PuestoDeTrabajo puesto1 = new PuestoDeTrabajo(true);
 		PuestoDeTrabajo puesto2 = new PuestoDeTrabajo(true);
@@ -40,7 +48,7 @@ public class LanzadorAulasList {
 		puestoDeAlumno.add(puesto2);
 		aula1.setPuestoDelProfesor(puestoDeProfesor1);
 		
-		AulaLN ideaNegocio = new AulaLN(new AulaMemoryListDAO());
+		AulaLN ideaNegocio = context.getBean("AulaLN", AulaLN.class);
 		ideaNegocio.darDeAltaUnAula(aula1);
 		ideaNegocio.darDeAltaUnAula(aula2);
 		ideaNegocio.AsignarAlumnoAAula("Dorkas", alumno3);

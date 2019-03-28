@@ -15,6 +15,10 @@ import com.curso.java.oo.ejercicio01oo.model.PuestoDeTrabajo;
 import ejercicio01DAO.IAulaDAO;
 
 public class AulaLN {
+	public AulaLN() {
+		super();
+	}
+
 	// llama a la interfaz
 	private IAulaDAO aulaDao;
 
@@ -91,6 +95,14 @@ public class AulaLN {
 	public List<Aula> listadoDeTodasLasAulas(){
 		List<Aula> listadoAulas = this.aulaDao.getAulas();
 		return listadoAulas;
+	}
+
+	public IAulaDAO getAulaDao() {
+		return aulaDao;
+	}
+
+	public void setAulaDao(IAulaDAO aulaDao) {
+		this.aulaDao = aulaDao;
 	}
 	
 
