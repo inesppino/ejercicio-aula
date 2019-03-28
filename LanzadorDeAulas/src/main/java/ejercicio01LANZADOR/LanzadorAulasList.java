@@ -7,6 +7,8 @@ import com.curso.java.oo.ejercicio01oo.model.Alumno;
 import com.curso.java.oo.ejercicio01oo.model.Aula;
 import com.curso.java.oo.ejercicio01oo.model.PuestoDeTrabajo;
 
+import ejercicio01NEGOCIO.AulaLN;
+
 public class LanzadorAulasList {
 
 	public static void main(String[] args) {
@@ -24,6 +26,7 @@ public class LanzadorAulasList {
 		puestoDeAlumno.add(puesto1);
 		puestoDeAlumno.add(puesto2);
 		Aula aula1 = new Aula("Ada", true, true, puestoDeAlumno);
+		AulaLN ideaNegocio = newAulaLN(new AulaMemoryListDAO)
 	}
 
 }
