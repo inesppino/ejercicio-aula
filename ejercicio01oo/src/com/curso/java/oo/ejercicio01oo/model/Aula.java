@@ -42,6 +42,11 @@ public class Aula {
 		return true;
 	}
 	
+	@Override
+	public String toString() {
+		return "Aula [nombre=" + nombre + "]";
+	}
+
 	public String getNombre() {
 		return nombre;
 	}

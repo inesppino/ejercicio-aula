@@ -9,10 +9,10 @@ import com.curso.java.oo.ejercicio01oo.model.Aula;
 import com.curso.java.oo.ejercicio01oo.model.Profesor;
 import com.curso.java.oo.ejercicio01oo.model.PuestoDeTrabajo;
 
-import ejercicio01DAO.AulaMemoryListDAO;
+import ejercicio01DAO.AulaMemoryMapDAO;
 import ejercicio01NEGOCIO.AulaLN;
 
-public class LanzadorAulasList {
+public class LanzadorAulasMap {
 
 	public static void main(String[] args) {
 		PuestoDeTrabajo puesto1 = new PuestoDeTrabajo(true);
@@ -40,18 +40,20 @@ public class LanzadorAulasList {
 		puestoDeAlumno.add(puesto2);
 		aula1.setPuestoDelProfesor(puestoDeProfesor1);
 		
-		AulaLN ideaNegocio = new AulaLN(new AulaMemoryListDAO());
-		ideaNegocio.darDeAltaUnAula(aula1);
-		ideaNegocio.darDeAltaUnAula(aula2);
-		ideaNegocio.AsignarAlumnoAAula("Dorkas", alumno3);
-		ideaNegocio.listaDeAlumnosPorAulaEspecifica("Dorkas");
-		ideaNegocio.listaDeProfesoresPorAulaEspecifica("Ada");
-		List<Aula> listadoDeTodasLasAulas = ideaNegocio.listadoDeTodasLasAulas();
+		AulaLN negocio = new AulaLN(new AulaMemoryMapDAO());
+		negocio.darDeAltaUnAula(aula1);
+		negocio.darDeAltaUnAula(aula2);
+		
+		negocio.AsignarAlumnoAAula("Dorkas", alumno3);
+		negocio.listaDeAlumnosPorAulaEspecifica("Dorkas");
+		negocio.listaDeProfesoresPorAulaEspecifica("Ada");
+		List<Aula> listadoDeTodasLasAulas = negocio.listadoDeTodasLasAulas();
 		for(int i = 0; i< listadoDeTodasLasAulas.size(); i++) {
 			Aula aulaobtenida = listadoDeTodasLasAulas.get(i);
 			System.out.println(aulaobtenida);
 		}
-		ideaNegocio.eliminarUnAula(aula1);
+		negocio.eliminarUnAula(aula1);
+		
 	}
 
 }

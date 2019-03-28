@@ -1,5 +1,6 @@
 package ejercicio01DAO;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -8,6 +9,12 @@ import com.curso.java.oo.ejercicio01oo.model.Aula;
 
 public class AulaMemoryMapDAO implements IAulaDAO {
 	private Map<String, Aula> mapDeAulas;
+	
+	
+	public AulaMemoryMapDAO() {
+		super();
+		this.mapDeAulas = new HashMap<String, Aula>();
+	}
 
 	public void createAula(Aula aula) {
 		if(!mapDeAulas.containsKey(aula.getNombre())) {
@@ -18,8 +25,8 @@ public class AulaMemoryMapDAO implements IAulaDAO {
 
 	public List<Aula> getAulas() {
 		List<Aula> listadoDeAulas = new LinkedList<Aula>();
-		for (int i = 0; i<mapDeAulas.size(); i++) {
-			listadoDeAulas.get(i);
+		for(String nombreAula: mapDeAulas.keySet()) {
+		listadoDeAulas.add(mapDeAulas.get(nombreAula));
 		}
 		return listadoDeAulas;
 	}
@@ -40,6 +47,7 @@ public class AulaMemoryMapDAO implements IAulaDAO {
 
 	public Aula getAulas(String nombre) {
 		return mapDeAulas.get(nombre);
+	
 	}
 
 }

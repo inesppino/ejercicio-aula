@@ -24,18 +24,14 @@ public class AulaLN {
 	}
 
 	// Crear un aula
-	public Aula darDeAltaUnAula(String nombre, boolean proyector, boolean pizarra,
-			Set<PuestoDeTrabajo> puestosDeAlumnos) {
-		Aula aula = new Aula(nombre, proyector, pizarra, puestosDeAlumnos);
+	public Aula darDeAltaUnAula(Aula aula) {
 		this.aulaDao.createAula(aula);
-		return this.aulaDao.getAulas(nombre);
+		return this.aulaDao.getAulas(aula.getNombre());
 	}	
 
 	// Eliminar aula
-	public void eliminarUnAula(List<Aula> aulas) {
-		for (Aula aula : aulas) {
-			aulaDao.deleteAula(aula);
-		}
+	public void eliminarUnAula(Aula aula) {
+		aulaDao.deleteAula(aula);
 	}
 
 	// Lista de alumnos por aula
@@ -90,4 +86,12 @@ public class AulaLN {
 			}
 		}
 	}
+	
+	//Listar todas las aulas
+	public List<Aula> listadoDeTodasLasAulas(){
+		List<Aula> listadoAulas = this.aulaDao.getAulas();
+		return listadoAulas;
+	}
+	
+
 }

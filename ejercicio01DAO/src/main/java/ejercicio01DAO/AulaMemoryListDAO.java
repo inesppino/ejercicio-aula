@@ -1,5 +1,6 @@
 package ejercicio01DAO;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.curso.java.oo.ejercicio01oo.model.Aula;
@@ -7,6 +8,11 @@ import com.curso.java.oo.ejercicio01oo.model.Aula;
 public class AulaMemoryListDAO implements IAulaDAO {
 
 	private List<Aula> listadoDeAulas;
+	
+	public AulaMemoryListDAO() {
+		super();
+		this.listadoDeAulas = new ArrayList<Aula>();
+	}
 	
 	public void createAula(Aula aula) {
 		if(!listadoDeAulas.contains(aula)) {
@@ -35,6 +41,7 @@ public class AulaMemoryListDAO implements IAulaDAO {
 	public void deleteAula(Aula aula) {
 		if(listadoDeAulas.contains(aula)) {
 		listadoDeAulas.remove(aula);
+		System.out.println("El aula" + aula + "ha sido borrada");
 		}
 	}
 
