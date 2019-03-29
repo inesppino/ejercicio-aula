@@ -2,10 +2,17 @@ package ejercicio01DAO;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Repository;
+
 import com.curso.java.oo.ejercicio01oo.model.Aula;
 
+@Repository
 public class AulaMemoryListDAO implements IAulaDAO {
 
+	@Autowired
+	@Qualifier("listadoDeAulas")
 	private List<Aula> listadoDeAulas;
 	
 	public List<Aula> getListadoDeAulas() {

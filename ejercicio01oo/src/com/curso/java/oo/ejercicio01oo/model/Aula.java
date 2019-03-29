@@ -2,21 +2,22 @@ package com.curso.java.oo.ejercicio01oo.model;
 
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+@Component
+@Scope(value="prototype")
 public class Aula {
 	
 	private String nombre;
-	private boolean proyector;
-	private boolean pizarra;
+	private Boolean proyector;
+	private Boolean pizarra;
 	private PuestoDeTrabajo puestoDelProfesor;
+	@Autowired
+	@Qualifier("setDePuestos")
 	private Set<PuestoDeTrabajo> puestosDeAlumnos;
-	
-	public Aula(String nombre, boolean proyector, boolean pizarra, Set<PuestoDeTrabajo> puestosDeAlumnos) {
-		super();
-		this.nombre = nombre;
-		this.proyector = proyector;
-		this.pizarra = pizarra;
-		this.puestosDeAlumnos = puestosDeAlumnos;
-	}
 	
 	@Override
 	public int hashCode() {
@@ -50,36 +51,42 @@ public class Aula {
 	public String getNombre() {
 		return nombre;
 	}
+
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	
-	public boolean isProyector() {
+
+	public Boolean getProyector() {
 		return proyector;
 	}
-	public void setProyector(boolean proyector) {
+
+	public void setProyector(Boolean proyector) {
 		this.proyector = proyector;
 	}
-	
-	public boolean isPizarra() {
+
+	public Boolean getPizarra() {
 		return pizarra;
 	}
-	public void setPizarra(boolean pizarra) {
+
+	public void setPizarra(Boolean pizarra) {
 		this.pizarra = pizarra;
 	}
-	
+
 	public PuestoDeTrabajo getPuestoDelProfesor() {
 		return puestoDelProfesor;
 	}
+
 	public void setPuestoDelProfesor(PuestoDeTrabajo puestoDelProfesor) {
 		this.puestoDelProfesor = puestoDelProfesor;
 	}
-	
+
 	public Set<PuestoDeTrabajo> getPuestosDeAlumnos() {
 		return puestosDeAlumnos;
 	}
+
 	public void setPuestosDeAlumnos(Set<PuestoDeTrabajo> puestosDeAlumnos) {
 		this.puestosDeAlumnos = puestosDeAlumnos;
 	}
 
+	
 }

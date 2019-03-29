@@ -6,6 +6,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.curso.java.oo.ejercicio01oo.model.Alumno;
 import com.curso.java.oo.ejercicio01oo.model.Aula;
 import com.curso.java.oo.ejercicio01oo.model.Persona;
@@ -14,12 +17,14 @@ import com.curso.java.oo.ejercicio01oo.model.PuestoDeTrabajo;
 
 import ejercicio01DAO.IAulaDAO;
 
+@Service
 public class AulaLN {
 	public AulaLN() {
 		super();
 	}
 
 	// llama a la interfaz
+	@Autowired
 	private IAulaDAO aulaDao;
 
 	public AulaLN(IAulaDAO aulaDao) {
@@ -85,7 +90,7 @@ public class AulaLN {
 		Iterator<PuestoDeTrabajo> iterador = puesto.iterator();
 		while(iterador.hasNext()) {
 			PuestoDeTrabajo puestoActual = iterador.next();
-			if(puestoActual.getPersona() == null && puestoActual.isOrdenador()) {
+			if(puestoActual.getPersona() == null && puestoActual.getOrdenador()== true) {
 				puestoActual.setPersona(alumno);
 			}
 		}
