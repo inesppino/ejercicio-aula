@@ -10,28 +10,28 @@ import com.curso.java.oo.ejercicio01oo.model.Profesor;
 import com.curso.java.oo.ejercicio01oo.model.PuestoDeTrabajo;
 
 public class App {
-	public static void main(String[] args) {
-		
-		Aula aula = new Aula("Kepler", true, true, new HashSet<PuestoDeTrabajo>());
-		aula.setPuestoDelProfesor(new PuestoDeTrabajo(true));
-		
-		for (int i = 0; i<14; i++) {
-		aula.getPuestosDeAlumnos().add(new PuestoDeTrabajo(true));
-		}
-		
-		aula.getPuestosDeAlumnos().add(new PuestoDeTrabajo(false));
-		
-		aula.getPuestoDelProfesor().setPersona(new Profesor());
-		
-		Set<PuestoDeTrabajo> puestos = aula.getPuestosDeAlumnos();
-		Iterator<PuestoDeTrabajo> iterador = puestos.iterator();
-		int numeroDeAlumnos = 12;
-		while(iterador.hasNext() && numeroDeAlumnos >0) {
-			PuestoDeTrabajo puestoActual = iterador.next();
-			if(puestoActual.isOrdenador()) {
-				puestoActual.setPersona(new Alumno());
-				numeroDeAlumnos--;
-			}
-		}
-	}
+//	public static void main(String[] args) {
+//		
+//		Aula aula = new Aula("Kepler", true, true, new HashSet<PuestoDeTrabajo>());
+//		aula.setPuestoDelProfesor(new PuestoDeTrabajo(true));
+//		
+//		for (int i = 0; i<14; i++) {
+//		aula.getPuestosDeAlumnos().add(new PuestoDeTrabajo(true));
+//		}
+//		
+//		aula.getPuestosDeAlumnos().add(new PuestoDeTrabajo(false));
+//		
+//		aula.getPuestoDelProfesor().setPersona(new Profesor());
+//		
+//		Set<PuestoDeTrabajo> puestos = aula.getPuestosDeAlumnos();
+//		Iterator<PuestoDeTrabajo> iterador = puestos.iterator();
+//		int numeroDeAlumnos = 12;
+//		while(iterador.hasNext() && numeroDeAlumnos >0) {
+//			PuestoDeTrabajo puestoActual = iterador.next();
+//			if(puestoActual.isOrdenador()) {
+//				puestoActual.setPersona(new Alumno());
+//				numeroDeAlumnos--;
+//			}
+//		}
+//	}
 }

@@ -41,6 +41,7 @@ public class AulaLN {
 	// Eliminar aula
 	public void eliminarUnAula(Aula aula) {
 		aulaDao.deleteAula(aula);
+
 	}
 
 	// Lista de alumnos por aula
@@ -88,10 +89,12 @@ public class AulaLN {
 		Aula aula = this.aulaDao.getAulas(nombre);
 		Set<PuestoDeTrabajo> puesto = aula.getPuestosDeAlumnos();
 		Iterator<PuestoDeTrabajo> iterador = puesto.iterator();
-		while(iterador.hasNext()) {
+		boolean admitido = false;
+		while(iterador.hasNext() && !admitido) {
 			PuestoDeTrabajo puestoActual = iterador.next();
 			if(puestoActual.getPersona() == null && puestoActual.getOrdenador()== true) {
 				puestoActual.setPersona(alumno);
+				admitido = true;
 			}
 		}
 	}
