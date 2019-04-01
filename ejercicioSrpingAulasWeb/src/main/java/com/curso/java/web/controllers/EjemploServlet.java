@@ -3,6 +3,7 @@ package com.curso.java.web.controllers;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 import javax.servlet.ServletException;
@@ -71,6 +72,8 @@ public class EjemploServlet extends HttpServlet {
 		Aula aula2 = context.getBean(Aula.class);
 		aula2.setNombre("Dorkas");
 		
+		Aula aula3 = context.getBean(Aula.class);
+		aula3.setNombre("Easley");
 		
 		PuestoDeTrabajo puestoDelProfesor = context.getBean(PuestoDeTrabajo.class);
 		Profesor profesor = context.getBean(Profesor.class);
@@ -82,7 +85,8 @@ public class EjemploServlet extends HttpServlet {
 		AulaLN ideaNegocio = context.getBean(AulaLN.class);
 		ideaNegocio.darDeAltaUnAula(aula1);
 		ideaNegocio.darDeAltaUnAula(aula2);
-		System.out.println(ideaNegocio.listadoDeTodasLasAulas());
+		List<Aula> listadoDeTodasLasAulas = ideaNegocio.listadoDeTodasLasAulas();
+		System.out.println(listadoDeTodasLasAulas);
 	
 		ideaNegocio.AsignarAlumnoAAula("Ada", alumno1);
 		ideaNegocio.AsignarAlumnoAAula("Ada", alumno2);
@@ -90,13 +94,16 @@ public class EjemploServlet extends HttpServlet {
 		Collection<Alumno> listaDeAlumnosPorAulaEspecifica = ideaNegocio.listaDeAlumnosPorAulaEspecifica("Ada");
 		System.out.println(listaDeAlumnosPorAulaEspecifica);
 
-		ideaNegocio.eliminarUnAula(aula2);
+		ideaNegocio.eliminarUnAula(aula3);
 		System.out.println(ideaNegocio.listadoDeTodasLasAulas());
 		
 		Iterator<Alumno> alumnos = listaDeAlumnosPorAulaEspecifica.iterator();
+		Iterator<Aula> aulas = listadoDeTodasLasAulas.iterator();
 		
 		request.setAttribute("mensajeAlumno1", alumnos.next());
 		request.setAttribute("mensajeAlumno2", alumnos.next());
+		request.setAttribute("mensajeAula1", aulas.next());
+		request.setAttribute("mensajeAula2", aulas.next());
 		
 		
 		getServletContext().getRequestDispatcher("/WEB-INF/jsps/saludar.jsp").forward(request, response);

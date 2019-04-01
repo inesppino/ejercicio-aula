@@ -7,9 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-<p>Alumno1: ${mensajeAlumno1.nombre} <p></br>
-<p>Alumno2: ${mensajeAlumno2.nombre} <p> </br>
+<ul> <h2>Lista de aulas:</h2>
+	<li>${mensajeAula1.nombre}</li>
+	<li>${mensajeAula2.nombre}</li>
+</ul>
+Alumno1: ${mensajeAlumno1.nombre} </br>
+Alumno2: ${mensajeAlumno2.nombre} </br>
 
 
 <%-- Singleton: ${mensajeSingleton.nombre} - ${mensajeSingleton.descripcion}<br/> --%>
