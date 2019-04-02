@@ -85,6 +85,7 @@ public class EjemploServlet extends HttpServlet {
 		AulaLN ideaNegocio = context.getBean(AulaLN.class);
 		ideaNegocio.darDeAltaUnAula(aula1);
 		ideaNegocio.darDeAltaUnAula(aula2);
+		ideaNegocio.darDeAltaUnAula(aula3);
 		List<Aula> listadoDeTodasLasAulas = ideaNegocio.listadoDeTodasLasAulas();
 		System.out.println(listadoDeTodasLasAulas);
 	
