@@ -34,9 +34,12 @@ public class AulaLN {
 
 	// Crear un aula
 	public Aula darDeAltaUnAula(Aula aula) {
-		this.aulaDao.createAula(aula);
-		return this.aulaDao.getAulas(aula.getNombre());
-	}	
+		if (aula != null) {
+			this.aulaDao.createAula(aula);
+			return this.aulaDao.getAulas(aula.getNombre());
+		} else
+			return null;
+	}
 
 	// Eliminar aula
 	public void eliminarUnAula(Aula aula) {
@@ -68,19 +71,21 @@ public class AulaLN {
 		PuestoDeTrabajo puestoProfesor = aula.getPuestoDelProfesor();
 		Set<PuestoDeTrabajo> puestos = aula.getPuestosDeAlumnos();
 		Collection<Profesor> listaProfesores = new LinkedList<Profesor>();
-		Iterator<PuestoDeTrabajo> iterador = puestos.iterator();
-		while (iterador.hasNext()) {
-			PuestoDeTrabajo puestoActual = iterador.next();
-			if(puestoActual.getPersona() != null) {
-				Persona personilla = puestoActual.getPersona();
-				if(personilla instanceof Profesor) {
-					listaProfesores.add((Profesor) puestoActual.getPersona());
+		if (puestos != null) {
+			Iterator<PuestoDeTrabajo> iterador = puestos.iterator();
+			while (iterador.hasNext()) {
+				PuestoDeTrabajo puestoActual = iterador.next();
+				if (puestoActual.getPersona() != null) {
+					Persona personilla = puestoActual.getPersona();
+					if (personilla instanceof Profesor) {
+						listaProfesores.add((Profesor) puestoActual.getPersona());
+					}
 				}
-			}
+			} 
 		}
-		
+
 		listaProfesores.add((Profesor) puestoProfesor.getPersona());
-		
+
 		return listaProfesores;
 	}
 
@@ -90,17 +95,17 @@ public class AulaLN {
 		Set<PuestoDeTrabajo> puesto = aula.getPuestosDeAlumnos();
 		Iterator<PuestoDeTrabajo> iterador = puesto.iterator();
 		boolean admitido = false;
-		while(iterador.hasNext() && !admitido) {
+		while (iterador.hasNext() && !admitido) {
 			PuestoDeTrabajo puestoActual = iterador.next();
-			if(puestoActual.getPersona() == null && puestoActual.getOrdenador()== true) {
+			if (puestoActual.getPersona() == null && puestoActual.getOrdenador() == true) {
 				puestoActual.setPersona(alumno);
 				admitido = true;
 			}
 		}
 	}
-	
-	//Listar todas las aulas
-	public List<Aula> listadoDeTodasLasAulas(){
+
+	// Listar todas las aulas
+	public List<Aula> listadoDeTodasLasAulas() {
 		List<Aula> listadoAulas = this.aulaDao.getAulas();
 		return listadoAulas;
 	}
@@ -112,6 +117,5 @@ public class AulaLN {
 	public void setAulaDao(IAulaDAO aulaDao) {
 		this.aulaDao = aulaDao;
 	}
-	
 
 }

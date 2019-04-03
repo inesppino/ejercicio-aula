@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Aulas</title>
 </head>
 <body>
 <ul> <h2>Lista de aulas:</h2>

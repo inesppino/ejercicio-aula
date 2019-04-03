@@ -68,7 +68,7 @@ public class EjemploServlet extends HttpServlet {
 		for(int i = 0; i< 11 ;i++) {
 			aula1.getPuestosDeAlumnos().add(context.getBean(PuestoDeTrabajo.class));
 		}
-//		
+	
 		Aula aula2 = context.getBean(Aula.class);
 		aula2.setNombre("Dorkas");
 		

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.curso.java.oo.ejercicio01oo.model.Aula;
 
+
 @Repository
 public class AulaMemoryListDAO implements IAulaDAO {
 
@@ -22,14 +23,14 @@ public class AulaMemoryListDAO implements IAulaDAO {
 	public void setListadoDeAulas(List<Aula> listadoDeAulas) {
 		this.listadoDeAulas = listadoDeAulas;
 	}
-
+	
 	public void createAula(Aula aula) {
-		if(!listadoDeAulas.contains(aula)) {
+		if(!listadoDeAulas.contains(aula) && aula != null) {
 			listadoDeAulas.add(aula);
 			System.out.println("El aula" + aula + "ha sido agregada");
-		}
+		}	
 	}
-
+	
 	public List<Aula> getAulas() {
 		return listadoDeAulas;
 	}
@@ -44,7 +45,6 @@ public class AulaMemoryListDAO implements IAulaDAO {
 			}
 			i++;
 		}
-
 	}
 
 	public void deleteAula(Aula aula) {
